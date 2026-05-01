@@ -1,0 +1,227 @@
+﻿<html><head><meta name="generator" content="ToSha 8.0.3.1">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<title></title>
+<STYLE TYPE="text/css">
+<!--
+A:visited {text-decoration: none}
+A:link {text-decoration: none}
+.l1 {color:000000;}
+.l2 {color:000000;}
+.l3 {font-style: italic; color:0000FF;}
+.l4 {color:008080;}
+//-->
+</STYLE><SCRIPT language="JavaScript" type="text/javascript">
+<!--
+var plight = new Image(); plight.src="../pics/light.gif";
+var pdark = new Image(); pdark.src="../pics/dark.gif";
+var pw = new Image(); pw.src="../pics/w.gif";
+var pb = new Image(); pb.src="../pics/b.gif";
+var pwk = new Image(); pwk.src="../pics/wk.gif";
+var pbk = new Image(); pbk.src="../pics/bk.gif";
+var autoplay = false;
+var rev = false;
+var totalmoves=49
+var cur=0;
+var boardsize=64;
+var m = new Array(totalmoves);
+
+m[0]=["0303030330303030030303031010101001010101202020200202020220202020",0,1];
+m[1]=["0303030330303030030303031010101001020101202010200202020220202020",0,2];
+m[2]=["0303030330303030030301031010301001020101202010200202020220202020",1,3];
+m[3]=["0303030330303030030302031010101001010101202010200202020220202020",2,4];
+m[4]=["0303030330301030030301031010103001010101202010200202020220202020",3,5];
+m[5]=["0303030330301030030301031010103001010101202020200202010220202020",4,6];
+m[6]=["0303030330301030030301031010101001010103202020200202010220202020",5,7];
+m[7]=["0303030330301030030301031010101001010203202020100202010220202020",6,8];
+m[8]=["0303030330301030010301031030101001010203202020100202010220202020",7,9];
+m[9]=["0303030330301030010301031030101001010203202020100202020220202010",8,10];
+m[10]=["0303030310301030030301031030101001010203202020100202020220202010",9,11];
+m[11]=["0303030310301030030301031030101001020203201020100202020220202010",10,12];
+m[12]=["0303010310303030030301031030101001020203201020100202020220202010",11,13];
+m[13]=["0303010310303030030301031030101001020203202020100102020220202010",12,14];
+m[14]=["0303010310303010030303031030101001020203202020100102020220202010",13,15];
+m[15]=["0303010310303010030303031030101001020203202020100202020220102010",14,16];
+m[16]=["0303010310303010030301031030301001020203202020100202020220102010",15,17];
+m[17]=["0303010310303010030302031030101001010203202020100202020220102010",16,18];
+m[18]=["0303010310301010030301031030103001010203202020100202020220102010",17,19];
+m[19]=["0303010310301010030301031030103001020203201020100202020220102010",18,20];
+m[20]=["0303010110301030030301031030103001020203201020100202020220102010",19,21];
+m[21]=["0303010110301030030301031030103001020203202020100102020220102010",20,22];
+m[22]=["0303010110301010030303031030103001020203202020100102020220102010",21,23];
+m[23]=["0303010110301010030303031030103001020203202020100202020210102010",22,24];
+m[24]=["0103010130301010030303031030103001020203202020100202020210102010",23,25];
+m[25]=["0103010130301010030303031030203001020103202020100202020210102010",24,26];
+m[26]=["0103010130301010030103031030103001020303202020100202020210102010",25,27];
+m[27]=["0103010130301010030103031030103002020303201020100202020210102010",26,28];
+m[28]=["0103010130301010030101031030303002020303201020100202020210102010",27,29];
+m[29]=["0403010130101010030101031010303001020303201020100202020210102010",28,30];
+m[30]=["0403010130101010030101031010103001010303201020100102020250102010",29,31];
+m[31]=["0103010130101010030101031010103001010103201020400102020250102010",30,32];
+m[32]=["0103010130101010010101031030103001010103201020400102020250102010",31,33];
+m[33]=["0403010130101010010101031030103001010103201020100102020250102010",32,34];
+m[34]=["0403010110101010030101031030103001010103201020100102020250102010",33,35];
+m[35]=["0103010110101010030101031030103001010103201020400102020250102010",34,36];
+m[36]=["0103010110101010010101033030103001010103201020400102020250102010",35,37];
+m[37]=["0403010110101010010101033030103001010103201020100102020250102010",36,38];
+m[38]=["0403010510101010010101033030103001010103201020100102020210102010",37,39];
+m[39]=["0103010510101010010101033030103001010103201020400102020210102010",38,40];
+m[40]=["0103010110101010010105033030103001010103201020400102020210102010",39,41];
+m[41]=["0403010110101010010105033030103001010103201020100102020210102010",40,42];
+m[42]=["0403010110101010010101033030103001010103201020100102020250102010",41,43];
+m[43]=["0103010110101010010101033030103001010103201020400102020250102010",42,44];
+m[44]=["0103010510101010010101033030103001010103201020400102020210102010",43,45];
+m[45]=["0403010510101010010101033030103001010103201020100102020210102010",44,46];
+m[46]=["0403010510101010010101033030103001010101201020300102020210102010",45,47];
+m[47]=["0403010510101010010102033030101001010101201020100102010210102010",46,48];
+m[48]=["0403010110101010010101033030101001010101201010100102050210102010",47,49];
+m[49]=["0403010110101010010101033030101001010101201010200102010210101010",48,49];
+document.onkeydown = Pressed;
+function Pressed() {
+p = event.keyCode;
+if (p==37) back();
+if (p==39) next();
+}
+function to(move) {
+for(x=0; x<64; x++)
+{ if (rev){a=m[move][0].charAt(63-x)} else {a=m[move][0].charAt(x)};
+if (a=="0") document.images[x].src=plight.src;
+if (a=="1") document.images[x].src=pdark.src;
+if (a=="2") document.images[x].src=pw.src;
+if (a=="3") document.images[x].src=pb.src;
+if (a=="4") document.images[x].src=pwk.src;
+if (a=="5") document.images[x].src=pbk.src; }
+if (cur!=0) document.anchors[cur-1].style.background="";
+if (move!=0) document.anchors[move-1].style.background="Silver";
+cur=move;  } ;
+function next() {
+to(m[cur][2]); }
+function back() {
+to(m[cur][1]); }
+function end() {
+to(totalmoves-1); }
+function dorev() {
+rev=!rev; to(cur) }
+ function play() {
+ if (autoplay) { next();
+ window.setTimeout("play()",1000);
+ if (m[cur][2]==cur) { autoplay=false;
+ document.forms[0].elements[4].value="play"; } } }
+ function doplay() {
+ autoplay=!autoplay;
+ if (autoplay) { play();
+ document.forms[0].elements[4].value="stop"; }
+ else document.forms[0].elements[4].value="play"; }
+-->
+</script></head>
+<body onload="javascript:to(0)" bgcolor=FFDEAD>
+<table border="0" cellpadding="10">
+<tr>
+ <td valign=top width="280">
+<p align=center>
+
+<table align="center" border="1" cellpadding="1" cellspacing="0" style="border: 1px solid black;">
+<tbody>
+<tr>
+<td><img><img><img><img><img><img><img><img><br>
+<img><img><img><img><img><img><img><img><br>
+<img><img><img><img><img><img><img><img><br>
+<img><img><img><img><img><img><img><img><br>
+<img><img><img><img><img><img><img><img><br>
+<img><img><img><img><img><img><img><img><br>
+<img><img><img><img><img><img><img><img><br>
+<img><img><img><img><img><img><img><img><br></td>
+</tr>
+</tbody>
+</table>
+</p>
+		<center><form>
+		<input type=button value="|<" onclick=to(0);>
+		<input type=button value="<" onclick=back();>
+		<input type=button value=">"  onclick=next();>
+		<input type=button value=">|" onclick=end();>
+		<input type=button value="play" onclick=doplay();>
+		<input type=button value="rev." onclick=dorev();>
+		</form></center>
+<hr>
+<center><i><b>Created with <a href="http://samarafed.ucoz.ru/index/0-22" target="_blank"><font color=blue><u>ToSha 8.0.3.1</u></font></a></b></I><br></center>
+<hr>
+
+<br>
+<a href="game1.htm" target=game>1. Саршаев М. - Коблевский В.Г.</a> =<br>
+<font size=-1>(Гайд на победу в дебюте в бразах, Кемер, [1.1], 01.05.2026)</font><br>
+
+ </td>
+ <td valign=top>
+<center><b><font size=+1>
+Саршаев М. - Коблевский В.Г.
+</b></font><br><i>
+Гайд на победу в дебюте в бразах, Кемер [1/2-1/2] 01.05.2026
+</i><br></center>
+<p align=justify>
+<div class="l4">
+<a href="javascript:to(1)" class="l1" name="0"><b>1.e3-d4 </b></a>
+<a href="javascript:to(2)" class="l1" name="0"><b>f6-e5</b></a>
+<a href="javascript:to(3)" class="l1" name="0"><b>2.d4:f6 </b></a>
+<a href="javascript:to(4)" class="l1" name="0"><b>e7:g5</b></a>
+<a href="javascript:to(5)" class="l1" name="0"><b>3.f2-e3 </b></a>
+<br><br><center><img src="dgrm1.png" width=250 height=250></center><br>
+Расстановка  
+<a href="javascript:to(6)" class="l1" name="0"><b>g5-h4</b></a>
+<a href="javascript:to(7)" class="l1" name="0"><b>4.g3-f4 </b></a>
+<a href="javascript:to(8)" class="l1" name="0"><b>b6-c5</b></a>
+<a href="javascript:to(9)" class="l1" name="0"><b>5.g1-f2 </b></a>
+<a href="javascript:to(10)" class="l1" name="0"><b>a7-b6</b></a>
+<a href="javascript:to(11)" class="l1" name="0"><b>6.c3-d4 </b></a>
+<a href="javascript:to(12)" class="l1" name="0"><b>f8-e7</b></a>
+<a href="javascript:to(13)" class="l1" name="0"><b>7.b2-c3 </b></a>
+<a href="javascript:to(14)" class="l1" name="0"><b>g7-f6</b></a>
+<a href="javascript:to(15)" class="l1" name="0"><b>8.c1-b2 </b></a>
+<br><br><center><img src="dgrm2.png" width=250 height=250></center><br>
+Классическая надвижка  
+<a href="javascript:to(16)" class="l1" name="0"><b>f6-e5</b></a>
+<a href="javascript:to(17)" class="l1" name="0"><b>9.d4:f6 </b></a>
+<a href="javascript:to(18)" class="l1" name="0"><b>e7:g5</b></a>
+<a href="javascript:to(19)" class="l1" name="0"><b>10.c3-d4 </b></a>
+<a href="javascript:to(20)" class="l1" name="0"><b>h8-g7!</b></a>
+<br><br><center><img src="dgrm3.png" width=250 height=250></center><br>
+Обязательный ход  
+<a href="javascript:to(21)" class="l1" name="0"><b>11.b2-c3 </b></a>
+<a href="javascript:to(22)" class="l1" name="0"><b>g7-f6</b></a>
+<a href="javascript:to(23)" class="l1" name="0"><b>12.a1-b2 </b></a>
+<a href="javascript:to(24)" class="l1" name="0"><b>b8-a7!!</b></a>
+<br><br><center><img src="dgrm4.png" width=250 height=250></center><br>
+Главная идея  
+<a href="javascript:to(25)" class="l1" name="0"><b>13.f4-e5 </b></a>
+<a href="javascript:to(26)" class="l1" name="0"><b>d6:f4</b></a>
+<a href="javascript:to(27)" class="l1" name="0"><b>14.c3-b4 </b></a>
+<a href="javascript:to(28)" class="l1" name="0"><b>f6-e5</b></a>
+<a href="javascript:to(29)" class="l1" name="0"><b>15.b4:b8 </b></a>
+<a href="javascript:to(30)" class="l1" name="0"><b>e5:a1</b></a>
+<a href="javascript:to(31)" class="l1" name="0"><b>16.b8:g3 </b></a>
+<br><br><center><img src="dgrm5.png" width=250 height=250></center><br>
+Переводим шашки на c5 и а5 
+<a href="javascript:to(32)" class="l1" name="0"><b>b6-c5</b></a>
+<a href="javascript:to(33)" class="l1" name="0"><b>17.g3-b8 </b></a>
+<a href="javascript:to(34)" class="l1" name="0"><b>a7-b6</b></a>
+<a href="javascript:to(35)" class="l1" name="0"><b>18.b8-g3 </b></a>
+<a href="javascript:to(36)" class="l1" name="0"><b>b6-a5</b></a>
+<a href="javascript:to(37)" class="l1" name="0"><b>19.g3-b8 </b></a>
+<br><br><center><img src="dgrm6.png" width=250 height=250></center><br>
+Теперь выжидаем темпа чтобы поставить нашу дамку на h8 в момент когда у белых будет стоять на g3 
+<a href="javascript:to(38)" class="l1" name="0"><b>a1-h8</b></a>
+<a href="javascript:to(39)" class="l1" name="0"><b>20.b8-g3 </b></a>
+<a href="javascript:to(40)" class="l1" name="0"><b>h8-f6</b></a>
+<a href="javascript:to(41)" class="l1" name="0"><b>21.g3-b8 </b></a>
+<a href="javascript:to(42)" class="l1" name="0"><b>f6-a1</b></a>
+<a href="javascript:to(43)" class="l1" name="0"><b>22.b8-g3 </b></a>
+<a href="javascript:to(44)" class="l1" name="0"><b>a1-h8</b></a>
+<a href="javascript:to(45)" class="l1" name="0"><b>23.g3-b8 </b></a>
+<a href="javascript:to(46)" class="l1" name="0"><b>h4-g3!!</b></a>
+<a href="javascript:to(47)" class="l1" name="0"><b>24.f2:f6 </b></a>
+<a href="javascript:to(48)" class="l1" name="0"><b>h8:f2</b></a>
+<a href="javascript:to(49)" class="l1" name="0"><b>25.e1:g3 </b></a>
+
+<b>1/2-1/2
+</b><br>
+<p align=right><font size=-1><i>Scripts of the program the Aurora are used <a href="http://aurora.shashki.com" target="_blank"><font color=red><u>Site Aurora Borealis</u></I></font></A><br></font></body></html>
+</div></td></tr><table></body></html>
